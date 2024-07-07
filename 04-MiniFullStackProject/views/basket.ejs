@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Basket</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/baskets">Baskets</a></li>
+            <li><a href="/favorites">Favorites</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Basket</h1>
+        <div class="basket-list">
+            <% basket.forEach(item => { %>
+                <div class="card">
+                    <h3><%= item.name %></h3>
+                    <p>Description: <%= item.desc %></p>
+                    <p>Quantity: <%= item.quantity %></p>
+                    <p>Price: <%= item.price %></p>
+                    <img src="<%= item.imageUrl %>" alt="<%= item.name %> Image">
+                    <button class="remove-button" onclick="removeFromBasket('<%= item.id %>')">Remove</button>
+                </div>
+            <% }) %>
+        </div>
+
+        <script>
+            const removeFromBasket = (id) => {
+                fetch(`/baskets/remove/${id}`, {
+                    method: "DELETE"
+                })
+                .then(res => res.json())
+                .then(item => {
+                    window.location.reload();
+                });
+            };
+        </script>
+    </div>
+</body>
+</html>
