@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ECOMMERCE SITE</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body, section{
+            padding: 0;
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .container{
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .header{
+            padding: 20px 5px;
+            background-color: #feeaea;
+        }
+
+        .header-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        
+        .nav-menu{
+            display: flex;
+            list-style: none;
+        }
+
+        .logo a{
+            text-decoration: none;
+            color: rgb(112, 99, 82);
+            font-size: 24px;
+        }
+
+        .nav-menu a{
+            text-decoration: none;
+            margin-left: 25px;
+            color: rgb(5, 6, 49);
+            font-size: 20px;
+        }
+
+        .nav-menu a:hover{
+            color: rgb(216, 14, 14);
+            transition: 0.5s;
+        }
+
+        .intro{
+            height: 45vh;
+            background-color: #c9eea6;
+            text-align: center;
+        }
+
+        .intro-container h1{
+             margin: 0 0 30px 0;
+             padding-top: 70px;
+             font-size: 32px;
+             line-height: 1.4;
+             font-weight: 700;
+        }
+
+        .intro-container p{
+            max-width: 768px;
+            font-size: 24px;
+            margin: 0 auto 40px;
+        }
+    
+        .intro-container a{
+            padding: 10px 25px;
+            border-radius: 20px;
+            background-color: #042d34;
+            text-decoration: none;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="/">Logo</a>
+                </div>
+                <nav class="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="/products">Products</a></li>
+                        <li><a href="/favorites">Favorites</a></li>
+                        <li><a href="/baskets">Basket</a></li>
+                        <% if (user) { %>
+                            <li><a href="/users/profile">Profile</a></li>
+                            <li><a href="/users/logout">Logout</a></li>
+                            <% if (user.username === 'admin') { %>
+                                <li><a href="/admin">Admin</a></li>
+                            <% } %>
+                        <% } else { %>
+                            <li><a href="/users/login">Login</a></li>
+                            <li><a href="/users/register">Register</a></li>
+                        <% } %>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="intro">
+        <div class="container">
+            <div class="intro-container">
+                <h1>Welcome to our Ecommerce Website</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero nihil vel perspiciatis delectus facere nisi.</p>
+                <a href="/products">See All Products</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
